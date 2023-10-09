@@ -1,7 +1,22 @@
 import React from "react";
+import { WebChatContainer, setEnableDebug } from '@ibm-watson/assistant-web-chat-react';
+
+const webChatOptions = {
+  integrationID: '713c4cf4-c068-49f0-8b6d-5759221ae248',
+  region: 'us-south' as const,
+  serviceInstanceID: 'bb474fb6-6a5e-4a83-ba80-93a2060b17e4',
+  // subscriptionID: 'only on enterprise plans',
+  // Note that there is no onLoad property here. The WebChatContainer component will override it.
+  // Use the onBeforeRender or onAfterRender prop instead.
+};
+
+// Include this if you want to get debugging information from this library. Note this is different than
+// the web chat "debug: true" configuration option which enables debugging within web chat.
+setEnableDebug(true);
 
 const Ia = (): JSX.Element => {
   return (
+    
     <div className="container-menu">
       <div className="grid-menu">
         <div className="col-md-12 pd-l">
@@ -13,7 +28,7 @@ const Ia = (): JSX.Element => {
               <p>
                 La capacidad de una máquina o programa de realizar tareas que
                 normalmente requieren inteligencia humana. Estas tareas incluyen
-                el aprendizaje, la razonamiento, la resolución de problemas, el
+                el aprendizaje, el razonamiento, la resolución de problemas, el
                 reconocimiento de voz, la percepción visual, el procesamiento
                 del lenguaje natural y la toma de decisiones.
               </p>
@@ -29,26 +44,26 @@ const Ia = (): JSX.Element => {
                 }}
               >
                 <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia1.jpeg" alt="Imagen 1" />
+                  <img src="../../assets/ia1.jpeg" alt="Imagen 1" />
                 </div>
 
                 <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia2.jpeg" alt="Imagen 2" />
+                  <img src="../../assets/ia2.jpeg" alt="Imagen 2" />
                 </div>
 
                 <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia3.jpeg" alt="Imagen 3" />
+                  <img src="../../assets/ia3.jpeg" alt="Imagen 3" />
                 </div>
                 <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia4.jpeg" alt="Imagen 1" />
-                </div>
-
-                <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia5.jpeg" alt="Imagen 2" />
+                  <img src="../../assets/ia4.jpeg" alt="Imagen 1" />
                 </div>
 
                 <div style={{ flex: 1, textAlign: "center" }}>
-                  <img src="./assets/ia6.jpeg" alt="Imagen 3" />
+                  <img src="../../assets/ia5.jpeg" alt="Imagen 2" />
+                </div>
+
+                <div style={{ flex: 1, textAlign: "center" }}>
+                  <img src="../../assets/ia6.jpeg" alt="Imagen 3" />
                 </div>
               </div>
             </p>
@@ -56,6 +71,7 @@ const Ia = (): JSX.Element => {
               <h3>• Sección IA en la creación de Bots:</h3>
               Colocar el codigo embebido del Asistente de Watson Assistant.
             </p>
+            <WebChatContainer config={webChatOptions} />
             <p>
               Nota: Este asistente debe tener al menos las siguientes
               intensiones: Saludos, Despedidas, IoT, IA y Cloud.
@@ -85,6 +101,7 @@ const Ia = (): JSX.Element => {
         </div>
       </div>
     </div>
+    
   );
 };
 
